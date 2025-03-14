@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Que cachorro sou eu?</title>
+    <link rel="stylesheet" href="../static/estilo.css">
+    <link rel="shortcut icon" href="../static/ico/pata.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="../static/logo.png" alt="logo">
+        <h1>Esse cachorro sou eu...</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="form">
+                <form action="/" method="post">
+                    <label>Informe seu nome:</label>
+                    <input type="text" name="nome">
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+            <div class="cachorro">
+                {% if not url_imagem %}
+                    <img src="../static/dog.jpg" alt="cachorro">
+                {% else %}
+                    <img src="{{ url_imagem }}" alt="">
+                    <p>{{nome}}</p>
+                {% endif %}
+                {% if erro %}
+                    <p>{{ erro }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Desenvolvido por uma amante de cachorros!🐶</p>
+    </footer> 
+</body>
+</html>
